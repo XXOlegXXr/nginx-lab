@@ -1,23 +1,15 @@
 services:
   api-node-1:
-    image: alpine:latest
-    working_dir: /root
+    build: ./backend
     environment:
       - PORT=8080
       - SERVER_NAME=API_NODE_1
-    volumes:
-      - ./backend:/root
-    command: ./app_bin
 
   api-node-2:
-    image: alpine:latest
-    working_dir: /root
+    build: ./backend
     environment:
       - PORT=8080
       - SERVER_NAME=API_NODE_2
-    volumes:
-      - ./backend:/root
-    command: ./app_bin
 
   web-server:
     image: nginx:alpine
